@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never" />
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="#46495E"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_wallet"
+            style="@style/main_rb_style"
+            android:drawableTop="@drawable/selector_wallet_rb_img"
+            android:text="钱包" />
+
+        <RadioButton
+            android:id="@+id/rb_application"
+            style="@style/main_rb_style"
+            android:drawableTop="@drawable/selector_wallet_rb_img"
+            android:text="应用" />
+
+        <RadioButton
+            android:id="@+id/rb_my"
+            style="@style/main_rb_style"
+            android:drawableTop="@drawable/selector_wallet_rb_img"
+            android:text="我的" />
+    </RadioGroup>
+</LinearLayout>

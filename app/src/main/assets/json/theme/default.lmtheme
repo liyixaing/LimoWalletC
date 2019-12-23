@@ -1,0 +1,128 @@
+{
+	"ThemeKey": "Default",
+	"ThemeName": {
+		"en-us": "Default",
+		"zh-cn": "默认"
+	},
+	"Version": "V1",
+	"Designer": "LMWallet Project",
+	"Colors": {
+
+		"//ThemeColor_NavBG": "导航条背景色(不支持渐变)",
+		"ThemeColor_NavBG": "#313347",
+
+		"//ThemeColor_NavTitle": "导航条标题色",
+		"ThemeColor_NavTitle": "#FAFAFA",
+
+		"//ThemeColor_NavItem": "导航条左右两侧Item颜色",
+		"ThemeColor_NavItem": "#FAFAFA",
+
+		"//ThemeColor_ContentViewBG_S": "内容页主背景色渐变起始",
+		"ThemeColor_ContentViewBG_S": "#313347",
+
+		"//ThemeColor_ContentViewBG_E": "内容页主背景色渐变终止",
+		"ThemeColor_ContentViewBG_E": "#313347",
+
+		"//ThemeColor_ContentTitle": "内容页中的标题颜色",
+		"ThemeColor_ContentTitle": "#FFFFFF",
+
+		"//ThemeColor_ContentSubTitle": "内容页中的子标题颜色",
+		"ThemeColor_ContentSubTitle": "#DCDDE2",
+
+		"//ThemeColor_ContentDescTitle": "内容页中的描述颜色",
+		"ThemeColor_ContentDescTitle": "#666988",
+
+		"//ThemeColor_PopViewBG": "底部弹框背景色",
+		"ThemeColor_PopViewBG": "#3D4057",
+
+		"//ThemeColor_PopViewNavBG": "底部弹框导航颜色(不支持渐变)",
+		"ThemeColor_PopViewNavBG": "#3D4057",
+
+		"//ThemeColor_PopViewNavItem": "底部弹框导航左右两侧Item颜色",
+		"ThemeColor_PopViewNavItem": "#FFFFFF",
+
+		"//ThemeColor_PopViewContentIcon": "底部弹框其他icon颜色",
+		"ThemeColor_PopViewContentIcon": "#FFFFFF",
+
+		"//ThemeColor_ButtonInfo_BG": "Info级按钮背景色",
+		"ThemeColor_ButtonInfo_BG": "#3F7CF5",
+
+		"//ThemeColor_ButtonInfo_Title": "Info级按钮标题色",
+		"ThemeColor_ButtonInfo_Title": "#FFFFFF",
+
+		"//ThemeColor_ButtonInfo_Desc": "info级按钮描述色",
+		"ThemeColor_ButtonInfo_Desc": "#AFB0B9",
+
+		"//ThemeColor_ButtonWarrning_BG": "Warrning级按钮背景渐色",
+		"ThemeColor_ButtonWarrning_BG": "#D9534F",
+
+		"//ThemeColor_ButtonWarrning_Title": "Warrning级按钮标题色",
+		"ThemeColor_ButtonWarrning_Title": "#FFFFFF",
+
+		"//ThemeColor_ButtonWarrning_Desc": "Warrning级按钮描述色",
+		"ThemeColor_ButtonWarrning_Desc": "#AFB0B9",
+
+		"//ThemeColor_ButtonDanger_BG": "Danger级按钮背景色",
+		"ThemeColor_ButtonDanger_BG": "#D9534F",
+
+		"//ThemeColor_ButtonDanger_Title": "Danger级按钮标题色",
+		"ThemeColor_ButtonDanger_Title": "#FFFFFF",
+
+		"//ThemeColor_ButtonDanger_Desc": "Danger级按钮描述色",
+		"ThemeColor_ButtonDanger_Desc": "#AFB0B9",
+
+		"//ThemeColor_Slider_BG_Left": "拖动进度条左侧颜色",
+		"ThemeColor_Slider_BG_Left": "#3F7CF5",
+
+		"//ThemeColor_Slider_BG_Right": "拖动进度条右侧颜色",
+		"ThemeColor_Slider_BG_Right": "#707B9B",
+
+		"//ThemeColor_Slider_Item": "拖动进度条其他附件Item颜色",
+		"ThemeColor_Slider_Item": "#FFFFFF",
+
+		"//ThemeColor_Cell_BG": "表格类各行背景色",
+		"ThemeColor_Cell_BG": "#3D4057",
+
+		"//ThemeColor_Cell_Title": "表格类各行页标题颜色",
+		"ThemeColor_Cell_Title": "#DDDDE2",
+
+		"//ThemeColor_Cell_Content": "表格类各行内容颜色",
+		"ThemeColor_Cell_Content": "#FFFFFF",
+
+		"//ThemeColor_Cell_BreakLine": "表格类各行分割线颜色",
+		"ThemeColor_Cell_BreakLine": "#E0E3F1",
+
+		"//ThemeColor_InputerBG": "输入框背景",
+		"ThemeColor_InputerBG": "#34374D",
+
+		"//ThemeColor_InputerPlaceholder": "输入框的提示文字颜色",
+		"ThemeColor_InputerPlaceholder": "#666988",
+
+		"//ThemeColor_InputerText": "输入框的文字颜色",
+		"ThemeColor_InputerText": "#FFFFFF",
+
+		"//ThemeColor_FrameBox_BG": "子内容框背景(不支持渐变)",
+		"ThemeColor_FrameBox_BG": "#34374B",
+
+		"//ThemeColor_FrameBox_Content": "子内容框内容颜色",
+		"ThemeColor_FrameBox_Content": "#FFFFFF",
+
+		"//ThemeColor_FrameBox_Desc": "子内容框二级内容颜色",
+		"ThemeColor_FrameBox_Desc": "#FFFFFF",
+
+		"//ThemeColor_FrameBox_Highlight": "子内容框高亮色",
+		"ThemeColor_FrameBox_Highlight": "#1D234D",
+
+		"//ThemeColor_FrameBox_Placeholder": "自内容框提示文字颜色",
+		"ThemeColor_FrameBox_Placeholder": "#AAAAAA",
+
+		"//ThemeColor_TabBarBG": "底部导航条背景颜色",
+		"ThemeColor_TabBarBG": "#46495E",
+
+		"//ThemeColor_TabBarItemNomal": "底部导航条按钮和标题的正常状态颜色",
+		"ThemeColor_TabBarItemNomal": "#999BA6",
+
+		"//ThemeColor_TabBarItemSelected": "底部导航条按钮和文字的选中时颜色",
+		"ThemeColor_TabBarItemSelected": "#F5B300"
+	}
+}

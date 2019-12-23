@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@android:id/background"
+        android:drawable="@drawable/shape_progressbar_bg" />
+
+    <item android:id="@android:id/progress">
+
+        <scale
+            android:drawable="@drawable/shape_progressbar_progress"
+            android:scaleWidth="100%">
+            <shape>
+                <corners android:radius="10dp" />
+                <gradient
+                    android:centerColor="#FFFFFF"
+                    android:endColor="#FFFFFF"
+                    android:startColor="#FFFFFF" />
+                <!--在gradient这里设置不同的颜色就会产生渐变的效果-->
+
+                <!--                <gradient-->
+                <!--                    android:startColor ="#0484fa"-->
+                <!--                    android:centerColor="#FFE107"-->
+                <!--                    android:endColor ="#ff00ff" />-->
+
+            </shape>
+        </scale>
+    </item>
+</layer-list>

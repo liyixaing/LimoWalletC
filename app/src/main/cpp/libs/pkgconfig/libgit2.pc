@@ -1,0 +1,13 @@
+prefix="/Users/apple/Documents/lgit2builder/builds"
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libgit2
+Description: The git library, take 2
+Version: 0.28.0
+
+Libs: -L${libdir} -lgit2
+Libs.private: -L/Users/apple/Documents/lgit2builder/builds/lib -lssh2
+Requires.private: openssl
+
+Cflags: -I${includedir}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xms.limowallet">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- sdcard读权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- sdcard写权限 -->
+    <!-- 写内部存储 -->
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <!-- 读内部存储 -->
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />&lt;!&ndash;允许安装和卸载权限&ndash;&gt;-->
+    <!-- 请求访问使用照相设备 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 安装 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <!--下面这句话是导入nui_app的时候使用到的关键是什么作用我也不知道-->
+    <!--android:name="io.dcloud.application.DCloudApplication"-->
+    <application
+        android:allowClearUserData="true"
+        android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:launchMode="singleTask"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="user"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustResize">
+        <!--android:name="io.dcloud.PandoraEntry"-->
+        <activity android:name=".activity.MainActivity"><!--WellComeActivity-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".activity.WellComeActivity" /><!--主activity-->
+        <activity android:name=".activity.KeystoreCreateActivity" /><!--创建钱包-->
+        <activity android:name=".activity.KeystoreImportActivity" /><!--导入钱包-->
+        <activity android:name=".activity.BackupHintsActivity" /><!--备份提示-->
+        <activity android:name=".activity.BackupMnemonicsActivity" /><!--备份助记词-->
+        <activity android:name=".activity.ConfirmMnemonicActivity" /><!--确认助记词-->
+        <activity android:name=".activity.MainLimoActivtiy" /><!--app主界面-->
+        <activity android:name=".activity.UpdateActivity" /><!--更新界面-->
+        <activity android:name=".activity.ServerActivity" /><!--测试启动本地服务器-->
+
+        <service
+            android:name=".manager.CoreService"
+            android:exported="false"/>
+    </application>
+</manifest>

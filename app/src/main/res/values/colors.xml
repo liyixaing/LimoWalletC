@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#5F627D</color>
+    <color name="colorAccent">#0030FF</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="home">#B8AC93</color>
+    <color name="home_text">#B8AC93</color>
+    <color name="ed_gray">#999BA6</color>
+    <color name="input_wallet_bg">#2B3330</color>
+    <color name="text_color">#2B3330</color>
+    <color name="tips">#D9534F</color>
+    <color name="orange">#F5B300</color>
+
+    <color name="mine_menu_divider_color">#999BA6</color>
+
+</resources>
