@@ -12,7 +12,6 @@ public class ServerManager extends BroadcastReceiver {
 
     private static final String CMD_KEY = "CMD_KEY";
     private static final String MESSAGE_KEY = "MESSAGE_KEY";
-
     private static final int CMD_VALUE_START = 1;
     private static final int CMD_VALUE_ERROR = 2;
     private static final int CMD_VALUE_STOP = 4;

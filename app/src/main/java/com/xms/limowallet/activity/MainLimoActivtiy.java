@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * 显示主界面
  */
-public class MainLimoActivtiy extends BaseActivity {
+public class MainLimoActivtiy extends BaseActivity{
     Context context;
     private ViewPager viewPager_main;
     List<Fragment> fragmentList = new ArrayList<>();
@@ -29,14 +29,20 @@ public class MainLimoActivtiy extends BaseActivity {
     private RadioGroup rg;
     RadioButton rb_wallet, rb_application, rb_my;//创建三个可点击的底部按钮
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lomo_main);
         context = getApplicationContext();
+//        serverManager = new ServerManager(this);
+//        serverManager.register();
+
         initView();
         initData();
     }
+
+
 
     //初始化View
     public void initView() {
@@ -110,6 +116,8 @@ public class MainLimoActivtiy extends BaseActivity {
             }
         }
     };
+
+
 
 //    private long timeMillis;
 //

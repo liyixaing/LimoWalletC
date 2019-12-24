@@ -103,7 +103,7 @@ public class WellComeActivity extends BaseActivity {
                     break;
                 case R.id.tv_english://英文选择
                     changeAppLanguage(Locale.US);//英文切换
-                    languagePopup.dismiss();//关闭选择语言弹窗`
+                    languagePopup.dismiss();//关闭选择语言弹窗`·
                     break;
                 case R.id.iv_icon_title:
                     initback();
