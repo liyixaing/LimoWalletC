@@ -54,10 +54,10 @@ public class ServerManager extends BroadcastReceiver {
         context.sendBroadcast(broadcast);
     }
 
-    private ServerActivity mActivity;
+    private ServerActivity mActivity;//这个activity是可以修改的
     private Intent mService;
 
-    public ServerManager(ServerActivity activity) {
+    public ServerManager(ServerActivity activity) {//修改了上面的activity后这个地方的activity也需要修改
         this.mActivity = activity;
         mService = new Intent(activity, CoreService.class);
     }

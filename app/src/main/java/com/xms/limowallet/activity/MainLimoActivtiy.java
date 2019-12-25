@@ -2,6 +2,7 @@ package com.xms.limowallet.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,14 +15,19 @@ import com.xms.limowallet.adapter.MainAdapter;
 import com.xms.limowallet.fragment.ApplicationFragment;
 import com.xms.limowallet.fragment.MyFragment;
 import com.xms.limowallet.fragment.WalletFragment;
+import com.xms.limowallet.manager.ServerManager;
+import com.xms.limowallet.utils.ToastUtils;
 
+import java.io.InputStream;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 显示主界面
  */
-public class MainLimoActivtiy extends BaseActivity{
+public class MainLimoActivtiy extends BaseActivity {
     Context context;
     private ViewPager viewPager_main;
     List<Fragment> fragmentList = new ArrayList<>();
@@ -29,20 +35,17 @@ public class MainLimoActivtiy extends BaseActivity{
     private RadioGroup rg;
     RadioButton rb_wallet, rb_application, rb_my;//创建三个可点击的底部按钮
 
+    ServerManager mServerManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lomo_main);
         context = getApplicationContext();
-//        serverManager = new ServerManager(this);
-//        serverManager.register();
 
         initView();
         initData();
     }
-
-
 
     //初始化View
     public void initView() {
@@ -117,24 +120,41 @@ public class MainLimoActivtiy extends BaseActivity{
         }
     };
 
+    //读取本地json
+    public void initJsonBean() {
+        try {
+            InputStream is = this.getResources().getAssets().open("lmbooter.json");
+            int length = is.available();
+            byte[] buffer = new byte[length];
+            is.read(buffer);
+            Reader response = new StringReader(new String(buffer));
 
 
-//    private long timeMillis;
-//
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
-//            if ((System.currentTimeMillis() - timeMillis) > 2000) {
-//                ToastUtils.showToast(context, getResources().getString(R.string.press_exit_again));
-//                timeMillis = System.currentTimeMillis();
-//            } else {
-//                exitAPP();//点击退出按钮直接摧毁堆栈
-//                System.exit(0);
-//            }
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
+    }
+
+
+    //进入到这个界面后点击后退按钮直接提示退出
+    private long timeMillis;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - timeMillis) > 2000) {
+                ToastUtils.showToast(context, getResources().getString(R.string.press_exit_again));
+                timeMillis = System.currentTimeMillis();
+            } else {
+                exitAPP();//点击退出按钮直接摧毁堆栈
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 
 }

@@ -6,6 +6,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
+import com.xms.limowallet.constant.Constant;
 import com.yanzhenjie.andserver.AndServer;
 import com.yanzhenjie.andserver.Server;
 
@@ -24,9 +25,9 @@ public class CoreService extends Service {
         try {
             ip = InetAddress.getByName("127.0.0.1");
             mServer = AndServer.serverBuilder()
-                    .inetAddress(NetUtils.getLocalIPAddress())//设置局域网的ip
-//                    .inetAddress(ip)//设置本机的ip
-                    .port(8080)//设置端口号
+//                    .inetAddress(NetUtils.getLocalIPAddress())//设置局域网的ip
+                    .inetAddress(ip)//设置本机的ip
+                    .port(Constant.PORT)//设置端口号
                     .timeout(10, TimeUnit.SECONDS)//设置等待超时的时间
                     .listener(new Server.ServerListener() {//服务监听
                         @Override
@@ -70,7 +71,7 @@ public class CoreService extends Service {
     private void startServer() {
         if (mServer.isRunning()) {
             String hostAddress = mServer.getInetAddress().getHostAddress();
-            ServerManager.onServerStart(CoreService.this, hostAddress);
+            ServerManager.onServerStart(this, hostAddress);
         } else {
             mServer.startup();
         }

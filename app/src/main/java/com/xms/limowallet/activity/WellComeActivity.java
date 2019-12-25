@@ -90,11 +90,11 @@ public class WellComeActivity extends BaseActivity {
                     break;
                 case R.id.ll_import_wallet://导入钱包
 //                    languagepopup();//切换语言弹出框
-                    ImportWallet();//导入钱包跳转
+//                    ImportWallet();//导入钱包跳转
 
                     //跳转到测试开启本地服务器的界面
-//                    Intent intent = new Intent(context, ServerActivity.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(context, ServerActivity.class);
+                    startActivity(intent);
 
                     break;
                 case R.id.tv_china://中文选择

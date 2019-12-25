@@ -3,18 +3,19 @@ package com.xms.limowallet.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.xms.limowallet.R;
+import com.xms.limowallet.constant.Constant;
 import com.xms.limowallet.manager.ServerManager;
 import com.yanzhenjie.andserver.annotation.Website;
 import com.yanzhenjie.andserver.framework.website.StorageWebsite;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.io.File;
 
 public class ServerActivity extends BaseActivity {
 
@@ -90,21 +91,21 @@ public class ServerActivity extends BaseActivity {
         mBtnStop.setVisibility(View.VISIBLE);
         mBtnBrowser.setVisibility(View.VISIBLE);
         if (!TextUtils.isEmpty(ip)) {
-            List<String> addressList = new LinkedList<>();
-            mRootUrl = "http://" + ip + ":8080/";
-            addressList.add(mRootUrl);
-            addressList.add("http://" + ip + ":8080/login.html");
-            mTvMessage.setText(TextUtils.join("\n", addressList));
+            mRootUrl = "http://" + ip + ":" + Constant.PORT + "/index.html";//本地服务器地址以及端口
+            mTvMessage.setText(mRootUrl);
         } else {
             mRootUrl = null;
             mTvMessage.setText("未获取服务器ip地址");
         }
     }
+    File sdDir = Environment.getExternalStorageDirectory();//获取本地路径
+    //拼接本地路径
+    String url = "file://" + sdDir + "/com.xms.lmwallet/Repo/gitee.com/Limoversion/main-dev.git/index.html";
 
     @Website
     public static class InternalWebsite extends StorageWebsite {
         public InternalWebsite() {
-            super("/sdcard/AndServer/web");
+            super(Environment.getExternalStorageDirectory()+"/com.xms.lmwallet/Repo/gitee.com/Limoversion/main-dev.git");
         }
     }
 
