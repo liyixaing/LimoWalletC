@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * 显示主界面
  */
-public class MainLimoActivtiy extends BaseActivity {
+public class HomeActivtiy extends BaseActivity {
     Context context;
     private ViewPager viewPager_main;
     List<Fragment> fragmentList = new ArrayList<>();

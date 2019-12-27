@@ -1,6 +1,7 @@
 package com.xms.limowallet.Model;
 
 import java.util.List;
+import java.util.Map;
 
 public class HomeModel {
     private String backgroundColor;
@@ -43,7 +44,7 @@ public class HomeModel {
     public static class itemsBean {
         private String pagePath;
         private String iconPath;
-        public TextsBean texts;
+        private Map<String, String> texts;
 
         public String getPagePath() {
             return pagePath;
@@ -61,31 +62,12 @@ public class HomeModel {
             this.iconPath = iconPath;
         }
 
-        public TextsBean getTexts() {
+        public Map<String, String> getTexts() {
             return texts;
         }
 
-        public void setTexts(TextsBean texts) {
+        public void setTexts(Map<String, String> texts) {
             this.texts = texts;
         }
-
-        public enum TextsBean {
-            en_us("en-us"), zh_cn("zh-cn");
-            private String language;
-
-            public String getLanguage() {
-                return language;
-            }
-
-            public void setLanguage(String language) {
-                this.language = language;
-            }
-
-            TextsBean(String s) {
-                this.language = s;
-            }
-        }
     }
-
-
 }

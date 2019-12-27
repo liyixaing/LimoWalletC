@@ -180,7 +180,7 @@ public class ConfirmMnemonicActivity extends BaseActivity {
                     if (dataSave.getDataList(" mnemonic").toString().equals(lists.toString())) {
                         Log.e("TAG", "助记词输入正确跳转到首页");
                         //跳转到主界面
-                        Intent intent = new Intent(context, MainLimoActivtiy.class);
+                        Intent intent = new Intent(context, HomeActivtiy.class);
                         startActivity(intent);
                     } else {
                         Log.e("TAG", "助记词输入不正确，让用户重新助记词");

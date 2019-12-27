@@ -36,5 +36,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="服务器停止成功" />
+
+        <Button
+            android:id="@+id/btn_http"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请求接口" />
     </LinearLayout>
 </LinearLayout>

@@ -23,11 +23,11 @@ public class CoreService extends Service {
     @Override
     public void onCreate() {
         try {
-            ip = InetAddress.getByName("127.0.0.1");
+            ip = InetAddress.getByName(Constant.NATIVE_LAN);
             mServer = AndServer.serverBuilder()
 //                    .inetAddress(NetUtils.getLocalIPAddress())//设置局域网的ip
                     .inetAddress(ip)//设置本机的ip
-                    .port(Constant.PORT)//设置端口号
+                    .port(Constant.PORT_TEST)//设置端口号
                     .timeout(10, TimeUnit.SECONDS)//设置等待超时的时间
                     .listener(new Server.ServerListener() {//服务监听
                         @Override
