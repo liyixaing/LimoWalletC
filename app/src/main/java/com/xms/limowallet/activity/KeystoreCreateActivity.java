@@ -246,7 +246,7 @@ public class KeystoreCreateActivity extends BaseActivity {
         //判断是否勾选立即备份
         if (cb_backups.isChecked() == true) {
             //未勾选立即备份 跳转到首页
-            Intent mainintent = new Intent(context, HomeActivtiy.class);
+            Intent mainintent = new Intent(context, HomeTestActivtiy.class);
             startActivity(mainintent);
 
         } else {

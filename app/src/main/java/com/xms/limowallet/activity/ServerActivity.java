@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xms.limowallet.R;
+import com.xms.limowallet.Server.ServerManager;
 import com.xms.limowallet.constant.Constant;
-import com.xms.limowallet.manager.ServerManager;
 import com.yanzhenjie.andserver.annotation.Website;
 import com.yanzhenjie.andserver.framework.website.StorageWebsite;
 
@@ -26,12 +26,9 @@ import okhttp3.Response;
 public class ServerActivity extends BaseActivity {
 
     private ServerManager mServerManager;
-    private Button mBtnStart;
-    private Button mBtnStop;
-    private Button mBtnBrowser;
+    private Button mBtnStart, mBtnStop, mBtnBrowser, btn_http, btn_intentTest;
     private TextView mTvMessage;
     private String mRootUrl;
-    private Button btn_http;
 
     /**
      * @param savedInstanceState
@@ -53,6 +50,8 @@ public class ServerActivity extends BaseActivity {
         mBtnBrowser = findViewById(R.id.btn_browse);
         mBtnBrowser.setOnClickListener(onClickListener);
         mTvMessage = findViewById(R.id.tv_message);
+        btn_intentTest = findViewById(R.id.btn_intentTest);
+        btn_intentTest.setOnClickListener(onClickListener);
 
         btn_http = findViewById(R.id.btn_http);
         btn_http.setOnClickListener(onClickListener);
@@ -96,6 +95,10 @@ public class ServerActivity extends BaseActivity {
                     Toast.makeText(context, "请求接口", Toast.LENGTH_SHORT).show();
                     WithHttpClient();
                     break;
+                case R.id.btn_intentTest:
+                    Intent intent = new Intent(context, HomeActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
     };
@@ -110,7 +113,7 @@ public class ServerActivity extends BaseActivity {
                 try {
                     OkHttpClient client = new OkHttpClient();//创建OkHttpClient对象
                     Request request = new Request.Builder()
-                            .url("http://0.0.0.0:" + Constant.PORT_TEST + "/static/lmbooter.json")//请求接口。如果需要传参拼接到接口后面。
+                            .url("http://" + Constant.NATIVE_LAN + ":" + Constant.PORT_MAIN + "/static/lmbooter.json")//请求接口。如果需要传参拼接到接口后面。
                             .build();//创建Request 对象
                     Response response = null;
                     response = client.newCall(request).execute();//得到Response 对象
@@ -127,13 +130,12 @@ public class ServerActivity extends BaseActivity {
         }).start();
     }
 
-
     public void onServerStart(String ip) {
         mBtnStart.setVisibility(View.GONE);
         mBtnStop.setVisibility(View.VISIBLE);
         mBtnBrowser.setVisibility(View.VISIBLE);
         if (!TextUtils.isEmpty(ip)) {
-            mRootUrl = "http://" + ip + ":" + Constant.PORT_TEST + "/index.html";//本地服务器地址以及端口
+            mRootUrl = "http://" + ip + ":" + Constant.PORT_MAIN + "/index.html";//本地服务器地址以及端口
             mTvMessage.setText(mRootUrl);
         } else {
             mRootUrl = null;

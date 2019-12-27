@@ -15,7 +15,7 @@ import com.xms.limowallet.adapter.MainAdapter;
 import com.xms.limowallet.fragment.ApplicationFragment;
 import com.xms.limowallet.fragment.MyFragment;
 import com.xms.limowallet.fragment.WalletFragment;
-import com.xms.limowallet.manager.ServerManager;
+import com.xms.limowallet.Server.ServerManager;
 import com.xms.limowallet.utils.ToastUtils;
 
 import java.io.InputStream;
@@ -27,14 +27,13 @@ import java.util.List;
 /**
  * 显示主界面
  */
-public class HomeActivtiy extends BaseActivity {
+public class HomeTestActivtiy extends BaseActivity {
     Context context;
     private ViewPager viewPager_main;
     List<Fragment> fragmentList = new ArrayList<>();
     MainAdapter mainAdapter;
     private RadioGroup rg;
     RadioButton rb_wallet, rb_application, rb_my;//创建三个可点击的底部按钮
-
     ServerManager mServerManager;
 
     @Override

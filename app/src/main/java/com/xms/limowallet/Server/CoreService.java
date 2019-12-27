@@ -1,4 +1,4 @@
-package com.xms.limowallet.manager;
+package com.xms.limowallet.Server;
 
 import android.app.Service;
 import android.content.Intent;
@@ -27,7 +27,7 @@ public class CoreService extends Service {
             mServer = AndServer.serverBuilder()
 //                    .inetAddress(NetUtils.getLocalIPAddress())//设置局域网的ip
                     .inetAddress(ip)//设置本机的ip
-                    .port(Constant.PORT_TEST)//设置端口号
+                    .port(Constant.PORT_MAIN)//设置端口号
                     .timeout(10, TimeUnit.SECONDS)//设置等待超时的时间
                     .listener(new Server.ServerListener() {//服务监听
                         @Override

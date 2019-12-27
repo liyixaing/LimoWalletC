@@ -49,12 +49,13 @@
         <activity android:name=".activity.BackupHintsActivity" /><!--备份提示-->
         <activity android:name=".activity.BackupMnemonicsActivity" /><!--备份助记词-->
         <activity android:name=".activity.ConfirmMnemonicActivity" /><!--确认助记词-->
-        <activity android:name=".activity.HomeActivtiy" /><!--app主界面-->
+        <activity android:name=".activity.HomeTestActivtiy" /><!--app测试主界面-->
         <activity android:name=".activity.UpdateActivity" /><!--更新界面-->
+        <activity android:name=".activity.HomeActivity" /><!--app启动完成后进入的主界面-->
         <activity android:name=".activity.ServerActivity" /><!--测试启动本地服务器-->
 
         <service
-            android:name=".manager.CoreService"
-            android:exported="false"/>
+            android:name=".Server.CoreService"
+            android:exported="false" />
     </application>
 </manifest>

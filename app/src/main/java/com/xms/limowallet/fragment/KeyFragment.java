@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.xms.limowallet.Plugins.ThemeManager.ThemeColor;
 import com.xms.limowallet.Plugins.ThemeManager.ThemeManager;
 import com.xms.limowallet.R;
-import com.xms.limowallet.activity.HomeActivtiy;
+import com.xms.limowallet.activity.HomeTestActivtiy;
 import com.xms.limowallet.utils.ToastUtils;
 
 import org.web3j.crypto.Credentials;
@@ -133,7 +133,7 @@ public class KeyFragment extends BaseFragment {
             Log.e("+++", "daoru:" + msg);
             ToastUtils.showToast(context, "导入钱包成功");
             //导入成功后跳转到首页
-            Intent intent = new Intent(context, HomeActivtiy.class);
+            Intent intent = new Intent(context, HomeTestActivtiy.class);
             startActivity(intent);
 
         } catch (Exception e) {

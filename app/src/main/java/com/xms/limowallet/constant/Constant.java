@@ -9,7 +9,6 @@ public class Constant {
     public static final String NATIVE_LAN = "0.0.0.0";
 
     //设置一个全局变量用来装本地服务器的端口号
-    public static final int PORT_TEST = 8081;//测试端口
     public static final int PORT_MAIN = 9000;
     public static final int PORT_DAPP = 9001;
     public static final int PORT_API = 9002;

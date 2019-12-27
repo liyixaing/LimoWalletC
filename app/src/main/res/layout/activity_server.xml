@@ -42,5 +42,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="请求接口" />
+
+        <Button
+            android:id="@+id/btn_intentTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转测试界面" />
     </LinearLayout>
 </LinearLayout>

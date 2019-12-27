@@ -94,6 +94,7 @@ repositories {
 
         //张鸿杨瀑布流布局
         api 'com.hyman:flowlayout-lib:1.1.2'
+        api 'com.zhy:okhttputils:2.6.2'
 
         //room数据库导入
         def room_version = "1.1.1"
