@@ -4,11 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager_main"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:overScrollMode="never" />
-    
+<!--    <androidx.viewpager.widget.ViewPager-->
+<!--        android:id="@+id/viewPager_main"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:overScrollMode="never" />-->
+
+    <TextView
+        android:id="@+id/tv_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前时间"/>
 </LinearLayout>

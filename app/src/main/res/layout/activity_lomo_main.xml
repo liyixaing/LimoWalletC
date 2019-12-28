@@ -37,5 +37,6 @@
             style="@style/main_rb_style"
             android:drawableTop="@drawable/selector_wallet_rb_img"
             android:text="我的" />
+
     </RadioGroup>
 </LinearLayout>

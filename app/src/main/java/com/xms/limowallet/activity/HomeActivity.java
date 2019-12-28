@@ -3,6 +3,7 @@ package com.xms.limowallet.activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -13,7 +14,9 @@ import com.xms.limowallet.constant.Constant;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -31,6 +34,8 @@ public class HomeActivity extends BaseActivity {
     Context context;
     List<Fragment> fragments = new ArrayList<>();
     List<String> url = new ArrayList<>();
+    TextView tv_item;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +45,16 @@ public class HomeActivity extends BaseActivity {
 
         initView();
         inithttps();
+        tv_item = findViewById(R.id.tv_item);
+        //获取当前时间
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
+        Date date = new Date(System.currentTimeMillis());
+        tv_item.setText("Date获取当前日期时间" + simpleDateFormat.format(date));
+
     }
 
     private void initView() {
+
     }
 
     /**
@@ -66,14 +78,18 @@ public class HomeActivity extends BaseActivity {
                         Log.e("TAG", response);
                         Gson gson = new Gson();
                         HomeModel homeModel = gson.fromJson(response, HomeModel.class);
-                        String locase = Locale.getDefault().getLanguage();
-                        System.out.println(locase);
-                        System.out.println(homeModel.getItems().size());
-                        for (int i = 0; i < homeModel.getItems().size(); i++) {
-                            for (Map.Entry<String, String> entry : homeModel.getItems().get(i).getTexts().entrySet()) {
-                                Log.e("TAG", "Key = " + entry.getKey() + ", Value = " + entry.getValue());
+                        String locase = Locale.getDefault().getLanguage();//获取系统使用的语言
+                        System.out.println(locase);//测试输出系统的语种
+                        for (int i = 0; i < homeModel.getItems().size(); i++) {//遍历列表中有几个选项
+                            for (Map.Entry<String, String> entry : homeModel.getItems().get(i).getTexts().entrySet()) {//这一步是遍历出语种
+                                Log.e("TAG", "Key = " + entry.getKey() + ", Value = " + entry.getValue());//输出语种
+                                //判断系统语言是否为中文
                                 if (locase.equals("zh")) {
+                                    tv_item.setText(homeModel.getItems().get(i).getTexts().get("en-us"));
+                                    //中文显示
                                 } else {
+                                    //其他语言
+                                    tv_item.setText(homeModel.getItems().get(i).getTexts().get("zh-cn"));
                                 }
                             }
                         }
@@ -107,8 +123,6 @@ public class HomeActivity extends BaseActivity {
                     e.printStackTrace();
                     Log.e("异常捕获", e.toString());
                 }
-
-
             }
         }).start();
 

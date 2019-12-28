@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.xms.limowallet.R;
+import com.xms.limowallet.Server.ServerManager;
 import com.xms.limowallet.adapter.MainAdapter;
 import com.xms.limowallet.fragment.ApplicationFragment;
 import com.xms.limowallet.fragment.MyFragment;
 import com.xms.limowallet.fragment.WalletFragment;
-import com.xms.limowallet.Server.ServerManager;
 import com.xms.limowallet.utils.ToastUtils;
 
 import java.io.InputStream;
@@ -41,7 +41,6 @@ public class HomeTestActivtiy extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lomo_main);
         context = getApplicationContext();
-
         initView();
         initData();
     }
