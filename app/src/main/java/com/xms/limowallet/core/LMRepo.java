@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 
+import com.xms.limowallet.core.Utils.DirUtils;
 import com.xms.limowallet.utils.RepoUtils;
 
 import org.web3j.abi.datatypes.Bool;
@@ -107,9 +108,9 @@ public class LMRepo {
         if (targetStoragePath.exists()) {
             if (!targetStoragePath.delete()) {
                 //TODO 删除文件夹
-//                File sdDir = Environment.getExternalStorageDirectory();//获取路径
-//                DirUtils.delete(sdDir.getAbsolutePath() + "/com.xms.lmwallet");//删除文件夹
-                throw LMCoreException.DeleteDirFailed();
+                File sdDir = Environment.getExternalStorageDirectory();//获取路径
+                DirUtils.delete(sdDir.getAbsolutePath() + "/com.xms.lmwallet");//删除文件夹
+//                throw LMCoreException.DeleteDirFailed();
             }
         }
 

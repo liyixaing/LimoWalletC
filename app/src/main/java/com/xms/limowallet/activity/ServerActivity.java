@@ -105,7 +105,6 @@ public class ServerActivity extends BaseActivity {
 
     //创建一个请求接口
     public void WithHttpClient() {
-
         //开启异步线程执行网络请求
         new Thread(new Runnable() {
             @Override

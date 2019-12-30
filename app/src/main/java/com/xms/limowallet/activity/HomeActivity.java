@@ -1,22 +1,23 @@
 package com.xms.limowallet.activity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.gson.Gson;
 import com.xms.limowallet.Model.HomeModel;
 import com.xms.limowallet.R;
+import com.xms.limowallet.adapter.HomeAdapter;
 import com.xms.limowallet.constant.Constant;
+import com.xms.limowallet.tabview.MagicIndicator;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -32,9 +33,11 @@ import okhttp3.Response;
 public class HomeActivity extends BaseActivity {
 
     Context context;
-    List<Fragment> fragments = new ArrayList<>();
-    List<String> url = new ArrayList<>();
-    TextView tv_item;
+    private List<Fragment> fragments = new ArrayList<>();
+    private List<String> url = new ArrayList<>();
+    private ViewPager viewPager;//碎片化容器
+    private MagicIndicator tab_magicindcator;//底部控件
+    private HomeAdapter homeAdapter;//适配器
 
 
     @Override
@@ -42,18 +45,20 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         context = getApplicationContext();
-
         initView();
         inithttps();
-        tv_item = findViewById(R.id.tv_item);
-        //获取当前时间
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");// HH:mm:ss
-        Date date = new Date(System.currentTimeMillis());
-        tv_item.setText("Date获取当前日期时间" + simpleDateFormat.format(date));
-
     }
 
     private void initView() {
+
+    }
+
+    //配置底部TabView
+    public void SettingTabBottom() {
+        viewPager = findViewById(R.id.viewPager_main);
+        tab_magicindcator = findViewById(R.id.tab_magicindcator);
+        tab_magicindcator.setBackgroundColor(Color.BLACK);
+
 
     }
 
@@ -85,11 +90,9 @@ public class HomeActivity extends BaseActivity {
                                 Log.e("TAG", "Key = " + entry.getKey() + ", Value = " + entry.getValue());//输出语种
                                 //判断系统语言是否为中文
                                 if (locase.equals("zh")) {
-                                    tv_item.setText(homeModel.getItems().get(i).getTexts().get("en-us"));
                                     //中文显示
                                 } else {
                                     //其他语言
-                                    tv_item.setText(homeModel.getItems().get(i).getTexts().get("zh-cn"));
                                 }
                             }
                         }
