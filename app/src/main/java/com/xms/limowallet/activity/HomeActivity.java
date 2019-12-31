@@ -48,18 +48,14 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         context = getApplicationContext();
-        initView();
         inithttps();
-    }
-
-    private void initView() {
     }
 
     //配置底部TabView
     public void SettingTabBottom() {
         viewPager = findViewById(R.id.viewPager_main);
         tab_magicindcator = findViewById(R.id.tab_magicindcator);
-        HomeAdapter homeAdapter = new HomeAdapter(ViewList);//适配器
+        HomeAdapter homeAdapter = new HomeAdapter(getSupportFragmentManager(), ViewList);//适配器
         viewPager.setAdapter(homeAdapter);
         tab_magicindcator.setBackgroundColor(Color.parseColor(homeModel.getBackgroundColor()));//设置界面背景色
         CommonNavigator commonNavigator = new CommonNavigator(this);
@@ -76,7 +72,7 @@ public class HomeActivity extends BaseActivity {
                 View customLayout = LayoutInflater.from(context).inflate(R.layout.simple_pager_title_layout, null);
                 final ImageView titleImg = (ImageView) customLayout.findViewById(R.id.title_img);
                 final TextView titleText = (TextView) customLayout.findViewById(R.id.title_text);
-//                titleImg.setImageResource(R.mipmap.ic_launcher);
+//                titleImg.setImageResource(R.mipmap.ic_launcher);//设置本地图片
                 String url = "http://" + Constant.NATIVE_LAN + ":" + Constant.PORT_MAIN + ViewList.get(index).getIconPath();
                 Picasso.with(context)
                         .load(url)
@@ -132,7 +128,6 @@ public class HomeActivity extends BaseActivity {
         });
         tab_magicindcator.setNavigator(commonNavigator);
         ViewPagerHelper.bind(tab_magicindcator, viewPager);
-
     }
 
     /**
