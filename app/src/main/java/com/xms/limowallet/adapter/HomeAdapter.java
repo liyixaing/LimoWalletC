@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.xms.limowallet.Model.HomeModel;
+
 import java.util.List;
 
 /**
@@ -15,9 +17,9 @@ import java.util.List;
  */
 public class HomeAdapter extends PagerAdapter {
 
-    private List<String> mDataList;
+    private List<HomeModel.itemsBean> mDataList;
 
-    public HomeAdapter(List<String> DataList) {
+    public HomeAdapter(List<HomeModel.itemsBean> DataList) {
         this.mDataList = DataList;
     }
 
@@ -41,7 +43,7 @@ public class HomeAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         TextView textView = new TextView(container.getContext());
-        textView.setText(mDataList.get(position));
+        textView.setText(mDataList.get(position).getTexts().get("zh-cn"));
         textView.setGravity(Gravity.CENTER);
         textView.setTextColor(Color.BLACK);
         textView.setTextSize(24);
@@ -79,6 +81,6 @@ public class HomeAdapter extends PagerAdapter {
      */
     @Override
     public CharSequence getPageTitle(int position) {
-        return mDataList.get(position);
+        return mDataList.get(position).getTexts().get("zh-cn");
     }
 }
