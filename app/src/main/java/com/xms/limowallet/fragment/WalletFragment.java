@@ -72,11 +72,9 @@ public class WalletFragment extends BaseFragment {
         wv_webview.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
-
             }
         });
         Log.e("url", url);
         wv_webview.loadUrl(url);
-
     }
 }

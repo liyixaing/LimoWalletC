@@ -13,7 +13,6 @@ import java.util.List;
  * 首页碎片化适配器
  */
 public class HomeAdapter extends FragmentPagerAdapter {
-
     private List<HomeModel.itemsBean> mDataList;
 
     public HomeAdapter(FragmentManager supportFragmentManager, List<HomeModel.itemsBean> viewList) {
@@ -30,5 +29,4 @@ public class HomeAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mDataList.size();
     }
-
 }
