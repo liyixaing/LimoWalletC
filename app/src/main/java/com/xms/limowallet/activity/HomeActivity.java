@@ -97,15 +97,15 @@ public class HomeActivity extends BaseActivity {
                     //点击动画效果
                     @Override
                     public void onLeave(int index, int totalCount, float leavePercent, boolean leftToRight) {
-                        titleImg.setScaleX(1.3f + (0.8f - 1.3f) * leavePercent);
-                        titleImg.setScaleY(1.3f + (0.8f - 1.3f) * leavePercent);
+//                        titleImg.setScaleX(1.3f + (0.8f - 1.3f) * leavePercent);
+//                        titleImg.setScaleY(1.3f + (0.8f - 1.3f) * leavePercent);
                     }
 
                     //点击动画效果
                     @Override
                     public void onEnter(int index, int totalCount, float enterPercent, boolean leftToRight) {
-                        titleImg.setScaleX(0.8f + (1.3f - 0.8f) * enterPercent);
-                        titleImg.setScaleY(0.8f + (1.3f - 0.8f) * enterPercent);
+//                        titleImg.setScaleX(0.8f + (1.3f - 0.8f) * enterPercent);
+//                        titleImg.setScaleY(0.8f + (1.3f - 0.8f) * enterPercent);
                     }
                 });
                 commonPagerTitleView.setOnClickListener(new View.OnClickListener() {

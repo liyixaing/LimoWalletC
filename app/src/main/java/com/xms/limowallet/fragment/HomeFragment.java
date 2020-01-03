@@ -1,5 +1,7 @@
 package com.xms.limowallet.fragment;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -10,6 +12,8 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -23,9 +27,11 @@ import java.util.List;
 public class HomeFragment extends BaseFragment {
 
     int position;
+    Context context;
     View view;
     List<HomeModel.itemsBean> mDataList;
     WebView wv_webview;
+    LinearLayout ll_time;
 
     public static Fragment newInstanc(int position, List<HomeModel.itemsBean> mDataList) {
         HomeFragment fragment = new HomeFragment();
@@ -37,12 +43,33 @@ public class HomeFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        initView();
+        context = getActivity();
+        initView();//初始化View
+        initUrl();//加载url
         return view;
     }
 
+    View view_tow;
+
     //初始化View
     public void initView() {
+        ll_time = view.findViewById(R.id.ll_time);
+        head();//添加头部
+    }
+
+    //添加头部布局
+    public void head() {
+        if (position != 0) {//判断当前界面
+            ll_time.setVisibility(View.GONE);//如果不为首页隐藏这个控件
+        }
+        view_tow = LayoutInflater.from(context).inflate(R.layout.item_tabview, ll_time, false);
+        TextView textView = view_tow.findViewById(R.id.tv_name);
+        textView.setText("名称");
+        textView.setTextColor(Color.parseColor("#ffffff"));
+        ll_time.addView(view_tow);
+    }
+
+    public void initUrl() {
         wv_webview = view.findViewById(R.id.wv_webview);
         //使用webView控件打开本地链接
         File sdDir = Environment.getExternalStorageDirectory();//获取本地路径
@@ -70,5 +97,6 @@ public class HomeFragment extends BaseFragment {
         wv_webview.loadUrl(url);
     }
 
-
 }
+
+
