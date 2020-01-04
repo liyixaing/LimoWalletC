@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.xms.limowallet.Model.HomeModel;
 import com.xms.limowallet.R;
 import com.xms.limowallet.constant.Constant;
+import com.xms.limowallet.popupwindow.ChangeWalletPopup;
 
 import java.io.File;
 import java.util.List;
@@ -65,9 +67,33 @@ public class HomeFragment extends BaseFragment {
         view_tow = LayoutInflater.from(context).inflate(R.layout.item_tabview, ll_time, false);
         TextView textView = view_tow.findViewById(R.id.tv_name);
         textView.setText("名称");
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChangeWalletPopup changeWalletPop = new ChangeWalletPopup(context, onClickListener);
+                changeWalletPop.showAsDropDown(view_tow.findViewById(R.id.tv_name), Gravity.CENTER, 0, 0);
+            }
+        });
         textView.setTextColor(Color.parseColor("#ffffff"));
         ll_time.addView(view_tow);
     }
+
+    //弹出跟换钱包弹出框
+    public void initPopup() {
+        ChangeWalletPopup changeWalletPop = new ChangeWalletPopup(context, onClickListener);
+        changeWalletPop.showAsDropDown(view_tow.findViewById(R.id.tv_name), Gravity.CENTER, 0, 0);
+    }
+
+    /**
+     * 按钮点击事件
+     */
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+            }
+        }
+    };
 
     public void initUrl() {
         wv_webview = view.findViewById(R.id.wv_webview);
@@ -96,7 +122,6 @@ public class HomeFragment extends BaseFragment {
         Log.e("url", url);
         wv_webview.loadUrl(url);
     }
-
 }
 
 
